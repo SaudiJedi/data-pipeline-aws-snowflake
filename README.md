@@ -112,7 +112,7 @@ The project has three stages/parts, and as seen in thie [diagram](#1-overview):
 - Please make sure to have AWS account.
 - As stated above you can simulate the process of having the datasets from the source [here](https://www.tpc.org/tpcds/) by placing them in RDS and S3.
 #### AWS Lambda:
-- You can create the AWS Lambda from the AWS Services and copying the Lambda function from the [source code](code\lambda_function.py).
+- You can create the AWS Lambda from the AWS Services and copying the Lambda function from the [source code](https://github.com/SaudiJedi/data-pipeline-aws-snowflake/blob/master/code/lambda_function.py).
 - In order to have the dependencies, you must add a layer to your lambda function, and below is a quick way to add a layer:
     - Open your AWS Cloudshell, and run the following commands:
     ```
@@ -157,7 +157,7 @@ The project has three stages/parts, and as seen in thie [diagram](#1-overview):
 #### Snowflake
 Make sure to have a Snowflake account with a valid subscription, or [create a new Snowflake account](https://signup.snowflake.com/).
 Do the following to create the databases and the schemas:
-1. Create a database on your Snowflake account, we can call it TPCDS, and you can find the source code [here](code\ddl\inventory_table_definition.sql)
+1. Create a database on your Snowflake account, we can call it TPCDS, and you can find the source code [here](https://github.com/SaudiJedi/data-pipeline-aws-snowflake/blob/master/code/ddl/inventory_table_definition.sql)
 2. Create a schema under the database TPCDS, we can call this schema RAW;
 3. In your schema "RAW" create a table called "inventory" with the columns and data type like this:
 <table>
@@ -217,7 +217,7 @@ Create two schemas for staging inside Snowflake under the `TPCDS`, a product sch
 
 **As you can go through the modeling, you can follow these multiple SQL scripts to solve the requirements needs, so please refer to the codes hyperlinked in order to follow up with the data defition**
 
-#### 6.2.3 [data_definition.sql](code\ddl\data_definition.sql) \(Data Modeling\)
+#### 6.2.3 [data_definition.sql](https://github.com/SaudiJedi/data-pipeline-aws-snowflake/blob/master/code/ddl/data_definition.sql) \(Data Modeling\)
 The steps of the data definition from the source code is as follows:
 1. Creating the `INTERMEDIATE` schema to process the ingested data on RAW schema and staging it for the production.
 2. Creating Customer Snapshot table inside the `INTERMEDIATE` schema which will store the data from all the customer tables as a snapshot to be processed from Customer Dim.
@@ -231,16 +231,16 @@ The goal of writing a stored procedure is to run multiple procedural SQL stateme
 We can also create variables in the stored procedure which is quite helpful when you want to get information from a table and use it to do something. Think about deleting the records with the most recent date from fact table. You can create a variable in stored procedure and populate it using SQL query. This variable can then be used throughout the code.
 Stored Procedure can run both DDL and DML statements.
 
-1. [sp_populating_customer_dimension.sql](code/stored_procedures/sp_populating_customer_dimension.sql) : This stored procedure is for the purpose of developing a merge script to integrate the new Customer dimension table into the existing dimension table within the Analytics schema, following Type 2 methodology.
+1. [sp_populating_customer_dimension.sql](https://github.com/SaudiJedi/data-pipeline-aws-snowflake/blob/master/code/stored_procedures/sp_populating_customer_dimension.sql) : This stored procedure is for the purpose of developing a merge script to integrate the new Customer dimension table into the existing dimension table within the Analytics schema, following Type 2 methodology.
 
-2. [sp_fact_table_daily_aggregated_sales.sql](code/stored_procedures/sp_fact_table_daily_aggregated_sales.sql) : 
+2. [sp_fact_table_daily_aggregated_sales.sql](https://github.com/SaudiJedi/data-pipeline-aws-snowflake/blob/master/code/stored_procedures/sp_fact_table_daily_aggregated_sales.sql) : 
 This stored procedure is for the purpose of developing a merge script to integrate the new Customer dimension table into the existing dimension table within the Analytics schema, following Type 2 methodology.
 
-3. [sp_fact_table_weekly_aggregated_sales.sql](code/stored_procedures/sp_fact_table_weekly_aggregated_sales.sql) : This stored procedure is for the purpose of creating a script to perform a join between the daily sales fact table and the updated inventory table, creating the weekly sales and inventory fact table within the Analytics schema.
+3. [sp_fact_table_weekly_aggregated_sales.sql](https://github.com/SaudiJedi/data-pipeline-aws-snowflake/blob/master/code/stored_procedures/sp_fact_table_weekly_aggregated_sales.sql) : This stored procedure is for the purpose of creating a script to perform a join between the daily sales fact table and the updated inventory table, creating the weekly sales and inventory fact table within the Analytics schema.
 
 #### 6.2.5 Scheduling
 
-[tasks.sql](code/tasks/tasks.sql) : 
+[tasks.sql](https://github.com/SaudiJedi/data-pipeline-aws-snowflake/blob/master/code/tasks/tasks.sql) : 
 - The goal of snowflake task is to schedule SQL query to run at a schedule time. This is very similar to cron job except it exists inside Snowflake.
 - We will use snowflake tasks to call Stored Procedure which will then run all the queries defined in it on a scheduled time.
 - Go to snowflake and open the new worksheet. We will use this worksheet to store all tasks related queries. You can name it Project Tasks.
@@ -309,7 +309,7 @@ We built this data pipeline that met the buisness requirements and resulted in t
 ## Our Final Dashboard
 ![Metabase Dashboard](imgs/dashboard/metabase_dashboard.png)
 
-You may want to check out our presentaion [here](other_files\project_presentation.pdf).
+You may want to check out our presentaion [here](https://github.com/SaudiJedi/data-pipeline-aws-snowflake/blob/master/other_files/project_presentation.pdf).
 
 <br><br>
 
