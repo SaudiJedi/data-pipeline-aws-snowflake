@@ -231,16 +231,16 @@ The goal of writing a stored procedure is to run multiple procedural SQL stateme
 We can also create variables in the stored procedure which is quite helpful when you want to get information from a table and use it to do something. Think about deleting the records with the most recent date from fact table. You can create a variable in stored procedure and populate it using SQL query. This variable can then be used throughout the code.
 Stored Procedure can run both DDL and DML statements.
 
-1. [sp_populating_customer_dimension.sql](code\stored_procedures\sp_populating_customer_dimension.sql) : This stored procedure is for the purpose of developing a merge script to integrate the new Customer dimension table into the existing dimension table within the Analytics schema, following Type 2 methodology.
+1. [sp_populating_customer_dimension.sql](code/stored_procedures/sp_populating_customer_dimension.sql) : This stored procedure is for the purpose of developing a merge script to integrate the new Customer dimension table into the existing dimension table within the Analytics schema, following Type 2 methodology.
 
-2. [sp_fact_table_daily_aggregated_sales.sql](code\stored_procedures\sp_fact_table_daily_aggregated_sales.sql) : 
+2. [sp_fact_table_daily_aggregated_sales.sql](code/stored_procedures/sp_fact_table_daily_aggregated_sales.sql) : 
 This stored procedure is for the purpose of developing a merge script to integrate the new Customer dimension table into the existing dimension table within the Analytics schema, following Type 2 methodology.
 
-3. [sp_fact_table_weekly_aggregated_sales.sql](code\stored_procedures\sp_fact_table_weekly_aggregated_sales.sql) : This stored procedure is for the purpose of creating a script to perform a join between the daily sales fact table and the updated inventory table, creating the weekly sales and inventory fact table within the Analytics schema.
+3. [sp_fact_table_weekly_aggregated_sales.sql](code/stored_procedures/sp_fact_table_weekly_aggregated_sales.sql) : This stored procedure is for the purpose of creating a script to perform a join between the daily sales fact table and the updated inventory table, creating the weekly sales and inventory fact table within the Analytics schema.
 
 #### 6.2.5 Scheduling
 
-[tasks.sql](code\tasks\tasks.sql) : 
+[tasks.sql](code/tasks/tasks.sql) : 
 - The goal of snowflake task is to schedule SQL query to run at a schedule time. This is very similar to cron job except it exists inside Snowflake.
 - We will use snowflake tasks to call Stored Procedure which will then run all the queries defined in it on a scheduled time.
 - Go to snowflake and open the new worksheet. We will use this worksheet to store all tasks related queries. You can name it Project Tasks.
