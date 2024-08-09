@@ -211,7 +211,7 @@ The dataset, sourced from TPCDS, is renowned for its application in database tes
 
 
 #### 6.2.2 Understanding the data modeling process
-You can get back to the [buisness requirements](#4-business-requirements) if you want to get the idea of the data modeling process.
+You can get back to the [busisness requirements](#4-business-requirements) if you want to get the idea of the data modeling process.
 
 Create two schemas for staging inside Snowflake under the `TPCDS`, a product schema that holds the data model we created. We can call it `ANALYTICS`, and a schema called `INTERMEDIATE` which will be used during the ETL process.
 
@@ -304,7 +304,7 @@ Our Metabase purpose is to create dashboard and reports in the BI tool --Metabas
 
 
 # Results & Conclusion
-We built this data pipeline that met the buisness requirements and resulted in the final product and datamart which is Metabase.
+We built this data pipeline that met the business requirements and resulted in the final product and datamart which is Metabase.
 
 ## Our Final Dashboard
 ![Metabase Dashboard](imgs/dashboard/metabase_dashboard.png)
