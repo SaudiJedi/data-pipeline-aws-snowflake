@@ -98,7 +98,7 @@ In this project, the entire infrastructure is constructed in the cloud:
 - **AWS Lambda:** Use AWS Lambda, a serverless service, to ingest data from AWS data storage (S3).
 
 
-The project has three stages/parts, and as seen in thie [diagram](#1-overview):
+The project has three stages/parts, and as seen in the [diagram](#1-overview):
 1. **Extraction and Ingestion Process**: The first part of the project involves Data Ingestion. It entails connecting to two data sources: the Postgres database and the AWS S3 bucket. Utilizing Airbyte, establish a connection to the `raw_st` schema* of the Postgres database on AWS RDS, and transfer all tables to the Snowflake data warehouse. In addition, leverage AWS Lambda to connect to the AWS S3 bucket and transfer the file named `inventory.csv`* from the S3 bucket to the Snowflake data warehouse.
 2. **Data Modeling & Transformation For Snowflake**: The next stage of the project focuses on data transformation within the Snowflake data warehouse. This involves reshaping tables from their original structure to the desired format. Throughout this phase, tasks include creating a data model, developing ETL scripts, and establishing a schedule for the data loading process.
 3. **Data Loading**: In the last part of this project, establish a connection between the Snowflake data warehouse and the BI tool (Metabase). This connection allows for the creation and display of dashboards and reports in Metabase, utilizing the data stored in Snowflake.
